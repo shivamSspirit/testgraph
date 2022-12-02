@@ -12,16 +12,16 @@ function Findsepration() {
         secondselect: 0
     })
 
-    const handledegrreval = (e: any) => {
+    const handledegrreval = (e: React.ChangeEvent<HTMLSelectElement>) => {
         let relationtargetname = e.target.name;
         if (relationtargetname === 'peoplefirstname') {
             setSelectRelation({
-                ...selectRealtion, firstselect: e.target.value
+                ...selectRealtion, firstselect: Number(e.target.value)
             })
         }
         if (relationtargetname === 'peoplesecondname') {
             setSelectRelation({
-                ...selectRealtion, secondselect: e.target.value
+                ...selectRealtion, secondselect: Number(e.target.value)
             })
         }
     }
@@ -54,7 +54,7 @@ function Findsepration() {
         isVisited[u] = false;
     }
 
-    const handledegrrevalues = (e: any) => {
+    const handledegrrevalues = (e: React.FormEvent) => {
         e.preventDefault();
         printAllPaths(Number(selectRealtion.firstselect), Number(selectRealtion.secondselect))
     }

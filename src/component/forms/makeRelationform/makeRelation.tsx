@@ -11,7 +11,7 @@ function MakeRelation() {
         firstFriend: '', secondFriend: ''
     })
 
-    const handleRelationName = (e: any) => {
+    const handleRelationName = (e: React.ChangeEvent<HTMLSelectElement>) => {
         let friendtargetname = e.target.name;
         if (friendtargetname === 'peoplefirstname') {
             setMakeFriend({
@@ -32,7 +32,7 @@ function MakeRelation() {
 
     }
 
-    const onAddRelation = (e: any) => {
+    const onAddRelation = (e: React.FormEvent) => {
         e.preventDefault();
         const [first, second] = findID(makeFriend?.firstFriend, makeFriend?.secondFriend)
         setShowRelation([...showRelation, `${first?.name} is friend of ${second?.name}`])

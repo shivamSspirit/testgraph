@@ -8,7 +8,7 @@ function Addpeople() {
     const { peoples, setpeoples } = React.useContext(Context) as ProviderType;
     const [peoplename, setPeopleName] = React.useState<string>('')
 
-    const handleNameChange = (e: any) => {
+    const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPeopleName(e.target.value)
     }
 
@@ -19,7 +19,7 @@ function Addpeople() {
         return maxId + 1
     }
 
-    const onAddPeopleSubmit = (e: any) => {
+    const onAddPeopleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setpeoples([...peoples, { id: generateId(), name: peoplename, relationtype: 1 }])
         setPeopleName('')
