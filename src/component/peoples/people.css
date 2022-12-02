@@ -1,0 +1,11 @@
+.app-block{
+    display: flex;
+    justify-content: center;
+    background: #000;
+}
+
+.peoples-block{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
