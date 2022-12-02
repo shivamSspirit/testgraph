@@ -1,5 +1,5 @@
 import React from 'react'
-import Addpeople from '../forms/addpeopleForm.tsx/addpeople'
+import Addpeople from '../forms/addpeopleForm/addpeople'
 import MakeRelation from '../forms/makeRelationform/makeRelation'
 import Findsepration from '../forms/findDegreeform/findsepration'
 import './people.css'
