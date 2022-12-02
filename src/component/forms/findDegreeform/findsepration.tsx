@@ -12,6 +12,8 @@ function Findsepration() {
         secondselect: 0
     })
 
+    const [instruction,setInstruction] = React.useState('')
+
     const handledegrreval = (e: React.ChangeEvent<HTMLSelectElement>) => {
         let relationtargetname = e.target.name;
         if (relationtargetname === 'peoplefirstname') {
@@ -57,6 +59,7 @@ function Findsepration() {
     const handledegrrevalues = (e: React.FormEvent) => {
         e.preventDefault();
         printAllPaths(Number(selectRealtion.firstselect), Number(selectRealtion.secondselect))
+        setInstruction("please open console for pathlist(degree of separation)")
     }
 
     return (
@@ -81,6 +84,8 @@ function Findsepration() {
                         <Button className='degree-btn' size='sm' variant='outline' type='submit'>Show degree</Button>
                     </div>
                 </form>
+                {instruction&&(<div className='instruction'>{instruction}</div>)}
+                
             </div>
         </div>
     )
