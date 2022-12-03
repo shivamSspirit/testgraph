@@ -14,6 +14,8 @@ function Findsepration() {
 
     const [instruction,setInstruction] = React.useState('')
 
+    let relationnonstateArray = Array.from(relationships);
+
     const handledegrreval = (e: React.ChangeEvent<HTMLSelectElement>) => {
         let relationtargetname = e.target.name;
         if (relationtargetname === 'peoplefirstname') {
@@ -29,9 +31,9 @@ function Findsepration() {
     }
 
     function printAllPaths(s: number, d: number) {
-        if (relationships.length) {
-            let isVisited: boolean[] = new Array(relationships.length);
-            for (let i = 0; i < relationships.length; i++)
+        if (relationnonstateArray) {
+            let isVisited = new Array(relationnonstateArray.length);
+            for (let i = 0; i < relationnonstateArray.length; i++)
                 isVisited[i] = false;
             let pathList = [];
             pathList.push(s);
@@ -40,17 +42,17 @@ function Findsepration() {
 
     }
 
-    function printAllPathsUtil(u: number, d: number, isVisited: boolean[], localPathList: number[]) {
+    function printAllPathsUtil(u: number, d: number, isVisited: any, localPathList: number[]) {
         if (u === (d)) {
             console.log('pathlist', localPathList.join('>'))
             return;
         }
         isVisited[u] = true;
         for (let i = 0; i < 2; i++) {
-            if (!isVisited[relationships[u][i]]) {
-                localPathList.push(relationships[u][i]);
-                printAllPathsUtil(relationships[u][i], d, isVisited, localPathList);
-                localPathList.splice(localPathList.indexOf(relationships[u][i]), 1);
+            if (!(isVisited[relationnonstateArray[u][i]])) {
+                localPathList.push(relationnonstateArray[u][i]);
+                printAllPathsUtil(relationnonstateArray[u][i], d, isVisited, localPathList);
+                localPathList.splice(localPathList.indexOf(relationnonstateArray[u][i]), 1);
             }
         }
         isVisited[u] = false;
